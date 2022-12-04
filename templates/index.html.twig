@@ -1,0 +1,44 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="container" style="margin-bottom: 80px;">
+        <div class="row">
+            <div class="col-md-2 col-lg-3 d-none d-md-block"></div>
+            <div class="col pt-3">
+                <div class="bg-white border-bottom border-1 d-flex py-2">
+                    <div class="flex-grow-0 mx-3">
+                        <img src="https://symfony.com/images/network/sf6certif_01.png" alt="profile" class="rounded-circle d-block" width="48px" height="48px">
+                    </div>
+                    <div class="flex-grow-1 me-3">
+                        <div>
+                            <a href="#" class="fw-bold text-underline-hover text-black">Display Name</a>
+                            <a href="#" class=" text-underline-hover text-black-50">@username</a>
+                            <span class="text-black-50">&bull; Aug 31, 2020</span>
+                        </div>
+                        <div class="text-black my-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore quibusdam reiciendis non qui doloribus recusandae ipsam in similique voluptatem enim!</div>
+                        <img src="https://pbs.twimg.com/media/FiR69IoUUAAb_Ov?format=jpg&name=small" alt="" class="d-block rounded-4 w-100 border">
+                        <div class="d-flex justify-content-between">
+                            <a href="#" class="btn">
+                                <i class="bi bi-suit-heart"></i> <span class="text-black">9999</span>
+                            </a>
+                            <a href="#" class="btn">
+                                <i class="bi bi-quote"></i> <span class="text-black">9999</span>
+                            </a>
+                            <a href="#" class="btn">
+                                <i class="bi bi-chat-square-dots"></i> <span class="text-black">9999</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-lg-3 d-none ps-2 d-sm-block">
+                <div class="position-sticky sticky-top mt-3 p-3 border rounded-2">
+                    <div class="h3 mb-3 fw-bold">New Here?</div>
+                    <div class="small mb-4"><p class="mb-1">This is an example project built using Symfony PHP and Bootstrap CSS.</p><a href="{{ url('app_about') }}">Learn More</a></div>
+                    <a href="#" class="btn btn-outline-primary rounded-pill d-block my-2">Log In</a>
+                    <a href="{{ url('app_register') }}" class="btn btn-primary rounded-pill d-block my-2">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
