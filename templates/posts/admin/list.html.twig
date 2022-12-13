@@ -1,0 +1,39 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h2>All Posts</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Author</th>
+                <th>Datetime</th>
+                <th>UUID</th>
+                <th>Link</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if posts|length > 0 %}
+                {% for post in posts %}
+                    <tr>
+                        <td>{{ post.id }}</td>
+                        <td>{{ post.author.username }}</td>
+                        <td>{{ post.time|date('Y-m-d H:i:s') }}</td>
+                        <td>{{ post.uuid }}</td>
+                        <td><a href="{{ url('post_status', {encoded: uuid_encode(post.uuid)}) }}" target="_blank">{{ uuid_encode(post.uuid) }}</a></td>
+                        <td>{{ post.status.value }}</td>
+                        <td>
+                            <a href="{{ url('post_delete', {uuid: post.uuid}) }}" class="btn btn-danger btn-sm"><i class="bi bi-x"></i> Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="6">No Posts</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+{% endblock %}

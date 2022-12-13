@@ -17,12 +17,29 @@ class Post
     #[ORM\Column(length: 140)]
     private ?string $content = null;
 
+    #[ORM\Column(enumType: PostStatus::class)]
+    private PostStatus $status;
+
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $time = null;
+
+    #[ORM\ManyToOne(inversedBy: 'posts')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?AppUser $author = null;
 
     public function __construct()
     {
         $this->uuid = Uuid::uuid4();
+        $this->status = PostStatus::PUBLIC;
+    }
+
+    public function setStatus(PostStatus $status): self {
+        $this->status = $status;
+        return $this;
+    }
+
+    public function getStatus(): PostStatus {
+        return $this->status;
     }
 
     public function getContent(): ?string
@@ -45,6 +62,18 @@ class Post
     public function setTime(\DateTimeInterface $time): self
     {
         $this->time = $time;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?AppUser
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?AppUser $author): self
+    {
+        $this->author = $author;
 
         return $this;
     }

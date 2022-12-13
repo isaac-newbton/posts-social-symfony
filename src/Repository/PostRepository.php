@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Doctrine\UuidEncoder;
 use App\Entity\Post;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -16,9 +17,12 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class PostRepository extends ServiceEntityRepository
 {
+    use UuidFinderTrait;
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Post::class);
+        $this->uuidEncoder = new UuidEncoder();
     }
 
     public function save(Post $entity, bool $flush = false): void
