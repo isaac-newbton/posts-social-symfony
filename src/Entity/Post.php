@@ -27,6 +27,12 @@ class Post
     #[ORM\JoinColumn(nullable: false)]
     private ?AppUser $author = null;
 
+    #[ORM\Column]
+    private int $views = 0;
+
+    #[ORM\Column]
+    private int $impressions = 0;
+
     public function __construct()
     {
         $this->uuid = Uuid::uuid4();
@@ -74,6 +80,30 @@ class Post
     public function setAuthor(?AppUser $author): self
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    public function getViews(): ?int
+    {
+        return $this->views;
+    }
+
+    public function setViews(int $views): self
+    {
+        $this->views = $views;
+
+        return $this;
+    }
+
+    public function getImpressions(): ?int
+    {
+        return $this->impressions;
+    }
+
+    public function setImpressions(int $impressions): self
+    {
+        $this->impressions = $impressions;
 
         return $this;
     }

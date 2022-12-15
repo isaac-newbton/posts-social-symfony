@@ -22,6 +22,8 @@ Encore
    */
   .addEntry("app", "./assets/app.js")
   .addEntry("global", "./assets/global.js")
+  .addEntry("header", "./assets/header.js")
+  .addEntry("post-timestamps", "./assets/post-timestamps.js")
 
   // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
   .enableStimulusBridge("./assets/controllers.json")

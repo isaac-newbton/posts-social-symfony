@@ -1,0 +1,7 @@
+{% if 0 < posts|length %}
+    {% for post in posts %}
+        {% include "posts/single.html.twig" with {'p' : post} %}
+    {% endfor %}
+{% else %}
+    no posts are trending
+{% endif %}

@@ -2,16 +2,16 @@
     <div class="flex-grow-0 mx-sm-3 mb-2 mb-sm-0">
         <img src="https://symfony.com/images/network/sf6certif_01.png" alt="profile" class="rounded-circle d-block" width="48px" height="48px">
     </div>
-    <div class="flex-grow-1 me-3">
+    <div class="flex-grow-1 me-0 me-sm-3 overflow-hidden">
         <div>
             <a href="#" class="fw-bold text-underline-hover text-black">Display Name</a>
             <a href="#" class=" text-underline-hover text-black-50">@user.name</a>
             <span class="text-black-50 d-block d-md-inline small">
-                <span class="d-none d-md-inline">&bull; </span>Aug 31, 2020
+                <span class="d-none d-md-inline">&bull; </span>{{ p.time|date('Y-m-d H:i:s') }} - {{ date_string(p.time) }} - {{ url('post_status', {encoded: uuid_encode(p.uuid)}) }}
             </span>
         </div>
-        <div class="text-black my-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore quibusdam reiciendis non qui doloribus recusandae ipsam in similique voluptatem enim!</div>
-        <img src="https://pbs.twimg.com/media/FiR69IoUUAAb_Ov?format=jpg&name=small" alt="" class="d-block rounded-4 w-100 border">
+        <div class="text-black my-2">{{ p.content }}</div>
+        {# <img src="https://pbs.twimg.com/media/FiR69IoUUAAb_Ov?format=jpg&name=small" alt="" class="d-block rounded-4 w-100 border"> #}
         <div class="d-flex justify-content-between">
             <a href="#" class="btn">
                 <i class="bi bi-suit-heart"></i> <span class="text-black">9999</span>

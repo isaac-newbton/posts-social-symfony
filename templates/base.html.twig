@@ -12,12 +12,16 @@
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
+            {{ encore_entry_script_tags('header') }}
+            {{ encore_entry_script_tags('post-timestamps') }}
         {% endblock %}
     </head>
     <body class="bg-light">
         {% include "header.html.twig" %}
         {% block body %}{% endblock %}
-        {% include "footer.html.twig" %}
+        {% block footer %}
+            {% include "footer.html.twig" %}
+        {% endblock %}
         {% block end %}{% endblock %}
     </body>
 </html>

@@ -43,6 +43,19 @@ class PostRepository extends ServiceEntityRepository
         }
     }
 
+   /**
+    * @return Post[] Returns an array of Post objects
+    */
+    public function findAllTrending(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.views', 'DESC')
+            ->setMaxResults(6)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
 //    /**
 //     * @return Post[] Returns an array of Post objects
 //     */
